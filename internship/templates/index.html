@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<h1>Interns</h1>
+
+<div class="row">
+    {% for intern in interns %}
+    <div class="col-lg-3">
+        <img class="thumbnail" src="{{ intern.imageURL }}">
+        <div class="box-element intern">
+            <h4><strong>{{ intern.firstname }} {{ intern.lastname }}</strong></h4>
+            <hr>
+            <h5>{{ intern.department }}</h5>
+            <hr>
+            <h6>{{ intern.current_address }}</h6>
+            <h6>{{ intern.email_address }}</h6>
+            <h6>{{ intern.phone_number }}</h6>
+            <hr>
+            <a class="btn btn-outline-success" href="/view_details/">View Full Details</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
