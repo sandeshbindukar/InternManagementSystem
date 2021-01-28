@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'department',
     'internship',
     'django_seed',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

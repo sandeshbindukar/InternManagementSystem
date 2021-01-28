@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<h1>Interns</h1>
+<h1> Interns</h1>
 
 <div class="row">
     {% for intern in interns %}
@@ -14,7 +14,7 @@
             <h6>{{ intern.email_address }}</h6>
             <h6>{{ intern.phone_number }}</h6>
             <hr>
-            <a class="btn btn-outline-success" href="/view_details/">View Full Details</a>
+            <a class="btn btn-outline-success" href="{% url 'internship:view_details' intern.id %}">View Full Details</a>
         </div>
     </div>
     {% endfor %}

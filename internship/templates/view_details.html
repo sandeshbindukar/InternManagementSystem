@@ -1,6 +1,31 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<h1>Interns</h1>
+<h1> Intern </h1>
 
-
+<div class="row">
+    <div class="col-md-6">
+        <img style="height: 510px;" class="thumbnail" src="{{ intern.imageURL }}">
+    </div>
+    <div class="col-md-6">
+        <div class="box-element ">
+            <h4><strong>{{ intern.firstname }} {{ intern.lastname }}</strong></h4>
+            <hr>
+            <h5><strong>Department: </strong>{{ intern.department }}</h5>
+            <hr>
+            <h6><strong>Date Of Birth: </strong>{{ intern.date_of_birth }}</h6>
+            <h6><strong>Email Address: </strong>{{ intern.email_address }}</h6>
+            <h6><strong>Phone Number: </strong>{{ intern.phone_number }}</h6>
+            <hr>
+            <h6><strong>Current Address: </strong>{{ intern.current_address }}</h6>
+            <h6><strong>Permanent Address: </strong>{{ intern.permanent_address }}</h6>
+            <hr>
+            <h6><strong>Contract Start Date: </strong>{{ intern.start_date }}</h6>
+            <h6><strong>Contract End Date: </strong>{{ intern.end_date }}</h6>
+            <hr>
+            <a class="btn btn-outline-success" href="#">Extend Contract</a>
+            <hr>
+            <a class="btn btn-outline-danger" href="#">Terminate Contract</a>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
