@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Internship
  
-class InternSerializers(serializers.ModelSerializer):
+class InternSerializers(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model= Internship
