@@ -3,6 +3,6 @@ from django.contrib import admin
 
 
 class DepartmentAdmin(admin.ModelAdmin):
-    list_display = ['name',]
+    list_display = ['id','name',]
 
 admin.site.register(Department, DepartmentAdmin)   

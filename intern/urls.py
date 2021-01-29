@@ -14,32 +14,27 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from department.models import Department
-import internship
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
 from django.conf.urls.static import static
 from django.conf import settings
-from rest_framework.urlpatterns import format_suffix_patterns
-from internship.views import InternList, apiOverView, InternDetailView, createIntern
-from department.views import DepartmentList, DepartmentDetailView, createDepartment
+from rest_framework import routers
+from department.views import DepartmentList
+from internship.views import InternList
+
+router = routers.DefaultRouter()
+router.register('departments', viewset=DepartmentList)
+router.register('interns', viewset=InternList)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/', apiOverView ),
-    # path('api/interns/', InternList.as_view() ),
-    # path('api/interns/<str:pk>/', InternDetailView.as_view() ),
-    # path('api/departments/', DepartmentList.as_view()),
-    # path('api/departments/<str:pk>/', DepartmentDetailView.as_view()),
-    # path('create-intern/', createIntern),
-    # path('create-department/', createDepartment),
+    path('api/', include(router.urls)),
     path('', include(('internship.urls','internship'), namespace='internship')),
     path('',include(('department.urls','department'), namespace='department')),
  
-    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
